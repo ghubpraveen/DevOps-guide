@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Senior DevOps Interview Guide</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f8fafc;
+            color: #1e293b;
+        }
+
+        header {
+            background: #0f172a;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            margin-bottom: 8px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .section {
+            background: white;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .section-title {
+            background: #e2e8f0;
+            padding: 15px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .question {
+            padding: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .question h4 {
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            color: #475569;
+            line-height: 1.6;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #64748b;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Senior DevOps Interview Handbook</h1>
+        <p>Jenkins • Kubernetes • Terraform • AWS • GCP • Reliability Engineering</p>
+    </header>
+
+    <div class="container">
+
+        <input type="text" class="search-box" placeholder="Search questions..." />
+
+        <div class="section">
+            <div class="section-title">
+                🚀 Jenkins & CI/CD
+            </div>
+
+            <div class="question">
+                <h4>Explain Build → Promote → Deploy Architecture</h4>
+                <div class="answer">
+                    Build creates immutable artifacts,
+                    Promote validates artifacts across environments,
+                    Deploy releases validated artifacts to target environments.
+                </div>
+            </div>
+
+            <div class="question">
+                <h4>How do you handle Rollback?</h4>
+                <div class="answer">
+                    Use immutable artifacts, version tagging,
+                    deployment history and automated rollback pipelines.
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <div class="section-title">
+                ☸️ Kubernetes
+            </div>
+
+            <div class="question">
+                <h4>What is HPA?</h4>
+                <div class="answer">
+                    Horizontal Pod Autoscaler automatically scales pods
+                    based on CPU or custom metrics.
+                </div>
+            </div>
+
+            <div class="question">
+                <h4>Pod stuck in Pending state</h4>
+                <div class="answer">
+                    Check describe pod, node resources,
+                    PVC binding, node selectors and taints.
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        Lavu Praveen Babu • DevOps Interview Guide
+    </footer>
+
+</body>
+
+</html>
