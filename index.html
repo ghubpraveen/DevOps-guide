@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Senior DevOps Interview Guide</title>
+    <title>Senior DevOps Interview Handbook</title>
 
     <style>
         * {
@@ -14,20 +14,38 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --bg: #f8fafc;
+            --card: #ffffff;
+            --header: #0f172a;
+            --text: #1e293b;
+            --border: #e2e8f0;
+            --section: #e2e8f0;
+        }
+
+        body.dark {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --header: #020617;
+            --text: #f1f5f9;
+            --border: #334155;
+            --section: #334155;
+        }
+
         body {
             font-family: Arial, Helvetica, sans-serif;
-            background: #f8fafc;
-            color: #1e293b;
+            background: var(--bg);
+            color: var(--text);
         }
 
         header {
-            background: #0f172a;
+            background: var(--header);
             color: white;
             padding: 20px;
         }
 
         header h1 {
-            margin-bottom: 8px;
+            margin-bottom: 10px;
         }
 
         .container {
@@ -36,33 +54,58 @@
             padding: 20px;
         }
 
-        .search-box {
-            width: 100%;
-            padding: 12px;
+        .toolbar {
+            display: flex;
+            gap: 10px;
             margin-bottom: 20px;
-            border: 1px solid #cbd5e1;
+            flex-wrap: wrap;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 250px;
+            padding: 12px;
+            border: 1px solid var(--border);
             border-radius: 8px;
             font-size: 16px;
         }
 
+        button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #2563eb;
+            color: white;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
         .section {
-            background: white;
+            background: var(--card);
             margin-bottom: 15px;
             border-radius: 10px;
-            border: 1px solid #e2e8f0;
             overflow: hidden;
+            border: 1px solid var(--border);
         }
 
         .section-title {
-            background: #e2e8f0;
+            background: var(--section);
             padding: 15px;
+            font-size: 18px;
             font-weight: bold;
             cursor: pointer;
         }
 
+        .section-content {
+            display: block;
+        }
+
         .question {
             padding: 15px;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid var(--border);
         }
 
         .question h4 {
@@ -70,8 +113,9 @@
         }
 
         .answer {
-            color: #475569;
-            line-height: 1.6;
+            color: var(--text);
+            line-height: 1.7;
+            white-space: pre-line;
         }
 
         footer {
@@ -79,70 +123,115 @@
             padding: 20px;
             color: #64748b;
         }
+
+        @media(max-width:768px) {
+            .toolbar {
+                flex-direction: column;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 
 <body>
 
     <header>
-        <h1>DevOps Handbook</h1>
-        <p>Jenkins • Kubernetes • Terraform • AWS • GCP • Reliability Engineering</p>
+        <h1>🚀 Senior DevOps Interview Handbook</h1>
+        <p>
+            Jenkins • Kubernetes • Terraform • AWS • GCP • Reliability • Incident Management
+        </p>
     </header>
 
     <div class="container">
 
-        <input type="text" class="search-box" placeholder="Search questions..." />
+        <div class="toolbar">
 
-        <div class="section">
-            <div class="section-title">
-                🚀 Jenkins & CI/CD
-            </div>
+            <input id="searchBox" class="search-box" type="text" placeholder="Search questions...">
 
-            <div class="question">
-                <h4>Explain Build → Promote → Deploy Architecture</h4>
-                <div class="answer">
-                    Build creates immutable artifacts,
-                    Promote validates artifacts across environments,
-                    Deploy releases validated artifacts to target environments.
-                </div>
-            </div>
+            <button onclick="expandAll()">
+                Expand All
+            </button>
 
-            <div class="question">
-                <h4>How do you handle Rollback?</h4>
-                <div class="answer">
-                    Use immutable artifacts, version tagging,
-                    deployment history and automated rollback pipelines.
-                </div>
-            </div>
+            <button onclick="collapseAll()">
+                Collapse All
+            </button>
+
+            <button onclick="toggleTheme()">
+                Dark Mode
+            </button>
+
         </div>
 
-        <div class="section">
-            <div class="section-title">
-                ☸️ Kubernetes
-            </div>
-
-            <div class="question">
-                <h4>What is HPA?</h4>
-                <div class="answer">
-                    Horizontal Pod Autoscaler automatically scales pods
-                    based on CPU or custom metrics.
-                </div>
-            </div>
-
-            <div class="question">
-                <h4>Pod stuck in Pending state</h4>
-                <div class="answer">
-                    Check describe pod, node resources,
-                    PVC binding, node selectors and taints.
-                </div>
-            </div>
+        <div id="content">
+            Loading questions...
         </div>
 
     </div>
 
     <footer>
-        Lavu Praveen Babu • DevOps Guide
+        Lavu Praveen Babu • DevOps Interview Guide
     </footer>
+
+    <script>
+        function expandAll() {
+            document
+                .querySelectorAll(".section-content")
+                .forEach(el => el.style.display = "block");
+        }
+
+        function collapseAll() {
+            document
+                .querySelectorAll(".section-content")
+                .forEach(el => el.style.display = "none");
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+        }
+
+        document.addEventListener("click", (e) => {
+
+            if (
+                e.target.classList.contains("section-title")
+            ) {
+
+                const content =
+                    e.target.nextElementSibling;
+
+                content.style.display =
+                    content.style.display === "none"
+                        ? "block"
+                        : "none";
+            }
+        });
+
+        document.addEventListener("input", (e) => {
+
+            if (e.target.id !== "searchBox")
+                return;
+
+            const value =
+                e.target.value.toLowerCase();
+
+            document
+                .querySelectorAll(".question")
+                .forEach(q => {
+
+                    const text =
+                        q.innerText.toLowerCase();
+
+                    q.style.display =
+                        text.includes(value)
+                            ? "block"
+                            : "none";
+                });
+        });
+    </script>
+
+    <script type="module" src="app.js"></script>
 
 </body>
 
