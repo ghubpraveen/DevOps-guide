@@ -21,7 +21,7 @@ do
 
   if [ $usage -gt $THRESHOLD ]
   then
-     echo "WARNING: $mount usage is ${usage}%"
+     echo "WARNING: $mount usage is \${usage}%"
   fi
 done
 `
