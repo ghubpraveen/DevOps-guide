@@ -105,15 +105,49 @@ window.toggleAnswer = function(id) {
 
 async function loadData() {
 
+    const modules = await Promise.all([
 
-const hr =
-    await import("./data/hr.js");
+        import("./data/hr.js"),
 
-sections.push(hr.default);
+        import("./data/jenkins.js"),
 
-render();
+        import("./data/kubernetes.js"),
 
+        import("./data/kubernetesTroubleshooting.js"),
 
+        import("./data/performanceEngineering.js"),
+
+        import("./data/terraform.js"),
+
+        import("./data/aws.js"),
+
+        import("./data/gcp.js"),
+
+        import("./data/sre.js"),
+
+        import("./data/incidentManagement.js"),
+
+        import("./data/linux.js"),
+
+        import("./data/scenarioBased.js"),
+
+        import("./data/bash.js"),
+
+        import("./data/python.js"),
+
+        import("./data/terraformScripts.js")
+
+    ]);
+
+    sections.push(
+
+        ...modules
+            .filter(m => m.default)
+            .map(m => m.default)
+
+    );
+
+    render();
 }
 
 loadData();
