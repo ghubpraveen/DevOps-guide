@@ -33,6 +33,44 @@ const experience = {
         },
 
         {
+            question: "Describe the CI/CD architecture implemented at ProfitApps.",
+
+            answer: `
+        • Standardized Build → Promote → Deploy architecture
+
+        • Build stage creates immutable artifacts
+
+        • Promote stage validates artifacts across environments
+
+        • Deploy stage releases approved artifacts
+
+        • Eliminates environment-specific builds
+
+        • Improves auditability and rollback capability
+
+        • Ensures consistency across all environments
+        `
+        },
+
+        {
+            question: "Describe a major automation initiative you implemented.",
+
+            answer: `
+        • Standardized Jenkins Shared Libraries
+
+        • Centralized deployment logic
+
+        • Reduced duplicate pipeline code
+
+        • Improved consistency across applications
+
+        • Simplified maintenance
+
+        • Accelerated onboarding of new projects
+        `
+        },
+
+        {
             question: "Walk me through a typical day at ProfitApps.",
 
             answer: `
@@ -115,6 +153,60 @@ const experience = {
         },
 
         {
+            question: "What Kubernetes operational challenges did you handle?",
+
+            answer: `
+        • Pod scheduling failures
+
+        • Resource constraints
+
+        • Ingress routing issues
+
+        • Node failures
+
+        • Persistent volume problems
+
+        • Application deployment troubleshooting
+        `
+        },
+
+        {
+            question: "How did Terraform improve operations at Kloud9?",
+
+            answer: `
+        • Infrastructure consistency
+
+        • Faster environment provisioning
+
+        • Version-controlled infrastructure
+
+        • Reduced manual errors
+
+        • Easier disaster recovery
+
+        • Improved auditability
+        `
+        },
+
+        {
+            question: "How did you ensure reliability in Kubernetes environments?",
+
+            answer: `
+        • Health probes
+
+        • Resource limits
+
+        • Autoscaling
+
+        • Monitoring and alerting
+
+        • Deployment validation
+
+        • Incident response processes
+        `
+        },
+
+        {
             question: "Walk me through a typical day at Kloud9.",
 
             answer: `
@@ -193,117 +285,189 @@ const experience = {
         },
 
         {
+            question: "Describe a performance issue you identified and resolved.",
+
+            answer: `
+        • High response times observed during load testing
+
+        • Dynatrace identified database bottleneck
+
+        • SQL query performing full table scans
+
+        • Worked with DBA team
+
+        • Query optimized using indexing
+
+        • Significant performance improvement achieved
+        `
+        },
+
+        {
+            question: "How did you perform root cause analysis at Cavisson?",
+
+            answer: `
+        • Analyze workload behavior
+
+        • Review application traces
+
+        • Correlate infrastructure metrics
+
+        • Examine database performance
+
+        • Validate findings through testing
+
+        • Recommend corrective actions
+        `
+        },
+
+        {
             question: "Walk me through a typical day at Cavisson.",
 
             answer: `
-• Review performance test results
+        • Review performance test results
 
-• Analyze application bottlenecks
+        • Analyze application bottlenecks
 
-• Develop workload models
+        • Develop workload models
 
-• Execute load tests
+        • Execute load tests
 
-• Review Dynatrace dashboards
+        • Review Dynatrace dashboards
 
-• Analyze AppDynamics traces
+        • Analyze AppDynamics traces
 
-• Work with developers and DBAs
+        • Work with developers and DBAs
 
-• Prepare performance reports
-`
+        • Prepare performance reports
+        `
         },
 
         {
             question: "What was your biggest contribution at Cavisson?",
 
             answer: `
-• Identified critical performance bottlenecks
+        • Identified critical performance bottlenecks
 
-• Improved application response times
+        • Improved application response times
 
-• Supported capacity planning initiatives
+        • Supported capacity planning initiatives
 
-• Reduced production performance risks
+        • Reduced production performance risks
 
-• Improved application scalability
-`
+        • Improved application scalability
+        `
         },
 
         {
             question: "How did Performance Engineering contribute to reliability at Cavisson?",
 
             answer: `
-• Identified bottlenecks before production
+        • Identified bottlenecks before production
 
-• Supported capacity planning
+        • Supported capacity planning
 
-• Reduced outage risks
+        • Reduced outage risks
 
-• Improved application stability
+        • Improved application stability
 
-• Improved customer experience
-`
+        • Improved customer experience
+        `
         },
 
         {
             question: "How has your career evolved from Cavisson to ProfitApps?",
 
             answer: `
-• Started with Performance Engineering
+        • Started with Performance Engineering
 
-• Moved into Cloud and Kubernetes
+        • Moved into Cloud and Kubernetes
 
-• Expanded into DevOps and CI/CD
+        • Expanded into DevOps and CI/CD
 
-• Took ownership of infrastructure automation
+        • Took ownership of infrastructure automation
 
-• Focused on reliability engineering
+        • Focused on reliability engineering
 
-• Currently driving platform standardization
-`
+        • Currently driving platform standardization
+        `
+        },
+
+        {
+            question: "Which achievement are you most proud of?",
+
+            answer: `
+        • Standardizing CI/CD architecture
+
+        • Reducing deployment inconsistencies
+
+        • Improving release reliability
+
+        • Building reusable automation frameworks
+
+        • Supporting scalable cloud-native deployments
+
+        • Enabling faster software delivery
+        `
         },
 
         {
             question: "Which role prepared you most for Senior DevOps responsibilities?",
 
             answer: `
-• Combination of all roles
+        • Combination of all roles
 
-• Cavisson taught troubleshooting and RCA
+        • Cavisson taught troubleshooting and RCA
 
-• Kloud9 provided cloud and Kubernetes expertise
+        • Kloud9 provided cloud and Kubernetes expertise
 
-• ProfitApps strengthened CI/CD and platform engineering skills
+        • ProfitApps strengthened CI/CD and platform engineering skills
 
-• Together they provide end-to-end operational experience
-`
+        • Together they provide end-to-end operational experience
+        `
+        },
+
+        {
+            question: "If selected, what will be your approach in the first 90 days?",
+
+            answer: `
+        • Understand existing architecture
+
+        • Review deployment processes
+
+        • Assess reliability posture
+
+        • Identify operational bottlenecks
+
+        • Build relationships with teams
+
+        • Deliver incremental automation improvements
+        `
         },
 
         {
             question: "If selected, what experience will you bring?",
 
             answer: `
-• DevOps automation
+        • DevOps automation
 
-• Kubernetes operations
+        • Kubernetes operations
 
-• Terraform infrastructure automation
+        • Terraform infrastructure automation
 
-• Jenkins CI/CD architecture
+        • Jenkins CI/CD architecture
 
-• Cloud operations
+        • Cloud operations
 
-• SRE practices
+        • SRE practices
 
-• Incident management
+        • Incident management
 
-• Performance Engineering expertise
+        • Performance Engineering expertise
 
-• Root cause analysis
+        • Root cause analysis
 
-• Platform reliability improvements
-`
+        • Platform reliability improvements
+        `
         }
 
     ]
