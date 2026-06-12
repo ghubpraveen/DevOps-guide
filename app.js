@@ -109,6 +109,8 @@ async function loadData() {
 
         import("./data/hr.js"),
 
+        import("./data/experience.js"),
+
         import("./data/jenkins.js"),
 
         import("./data/kubernetes.js"),
