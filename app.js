@@ -7,75 +7,61 @@ const container =
     document.getElementById("content");
 
 container.innerHTML =
-    ${section.questions.map((q, idx) => `
+    sections.map(section => `
 
-    <div class="question">
+        <div class="section">
 
-        <div
-            class="question-title"
-            onclick="toggleAnswer('${section.title}-${idx}')"
-        >
-            ❓ ${q.question}
+            <div class="section-title">
+                ${section.icon} ${section.title}
+            </div>
+
+            ${section.questions.map((q, idx) => `
+
+                <div class="question">
+
+                    <div
+                        class="question-title"
+                        onclick="toggleAnswer('${section.title}-${idx}')"
+                    >
+                        ❓ ${q.question}
+                    </div>
+
+                    <div
+                        id="${section.title}-${idx}"
+                        class="answer"
+                        style="display:none;"
+                    >
+                        ${q.answer}
+                    </div>
+
+                </div>
+
+            `).join("")}
+
         </div>
 
-        <div
-            id="${section.title}-${idx}"
-            class="answer"
-            style="display:none;"
-        >
-            ${q.answer}
-        </div>
-
-    </div>
-
-    `).join("")}
+    `).join("");
 
 
 }
 
 window.toggleAnswer = function(id) {
 
-    const el =
-        document.getElementById(id);
 
-    if (el.style.display === "none") {
+const el =
+    document.getElementById(id);
 
-        el.style.display = "block";
+if (el.style.display === "none") {
 
-    } else {
+    el.style.display = "block";
 
-        el.style.display = "none";
-    }
+} else {
+
+    el.style.display = "none";
+}
+
+
 };
-
-.question-title {
-
-    font-weight: bold;
-
-    cursor: pointer;
-
-    padding: 12px;
-
-    background: #fff;
-
-    border-top: 1px solid #e5e7eb;
-}
-
-.question-title:hover {
-
-    background: #f8fafc;
-}
-
-.answer {
-
-    padding: 15px;
-
-    line-height: 1.8;
-
-    white-space: pre-line;
-
-    background: #fafafa;
-}
 
 async function loadData() {
 
