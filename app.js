@@ -40,7 +40,13 @@ function render() {
                                         class="question-title"
                                         onclick="event.stopPropagation(); toggleAnswer('${questionId}')"
                                     >
-                                        ❓ ${q.question}
+                                        <span>
+                                            ❓ ${q.question}
+                                        </span>
+
+                                        <span>
+                                            ▼
+                                        </span>
                                     </div>
 
                                     <div
