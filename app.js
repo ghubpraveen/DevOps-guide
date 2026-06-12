@@ -102,9 +102,9 @@ window.toggleAnswer = function(id) {
 
 async function loadData() {
 
-    const modules = await Promise.all([
+    const modules = await Promise.all([        
 
-        import("./data/hr.js"),
+        import("./data/experienceInterview.js"),
 
         import("./data/experience.js"),
 
@@ -134,7 +134,9 @@ async function loadData() {
 
         import("./data/python.js"),
 
-        import("./data/terraformScripts.js")
+        import("./data/terraformScripts.js"),
+
+        import("./data/hr.js")
 
     ]);
 
