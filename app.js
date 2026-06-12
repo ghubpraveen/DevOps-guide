@@ -2,66 +2,99 @@ const sections = [];
 
 function render() {
 
+    const container =
+        document.getElementById("content");
 
-const container =
-    document.getElementById("content");
+    container.innerHTML =
+        sections.map((section, sectionIndex) => {
 
-container.innerHTML =
-    sections.map(section => `
+            const sectionId =
+                `section-${sectionIndex}`;
 
-        <div class="section">
+            return `
 
-            <div class="section-title">
-                ${section.icon} ${section.title}
-            </div>
-
-            ${section.questions.map((q, idx) => `
-
-                <div class="question">
+                <div class="section">
 
                     <div
-                        class="question-title"
-                        onclick="toggleAnswer('${section.title}-${idx}')"
+                        class="section-title"
+                        onclick="toggleSection('${sectionId}')"
                     >
-                        ❓ ${q.question}
+                        ${section.icon} ${section.title}
                     </div>
 
                     <div
-                        id="${section.title}-${idx}"
-                        class="answer"
-                        style="display:none;"
+                        id="${sectionId}"
+                        class="section-content"
                     >
-                        ${q.answer}
+
+                        ${section.questions.map((q, idx) => {
+
+                            const questionId =
+                                `${sectionId}-q-${idx}`;
+
+                            return `
+
+                                <div class="question">
+
+                                    <div
+                                        class="question-title"
+                                        onclick="event.stopPropagation(); toggleAnswer('${questionId}')"
+                                    >
+                                        ❓ ${q.question}
+                                    </div>
+
+                                    <div
+                                        id="${questionId}"
+                                        class="answer"
+                                        style="display:none;"
+                                    >
+                                        ${q.answer}
+                                    </div>
+
+                                </div>
+
+                            `;
+                        }).join("")}
+
                     </div>
 
                 </div>
 
-            `).join("")}
+            `;
 
-        </div>
-
-    `).join("");
-
-
+        }).join("");
 }
+
+window.toggleSection = function(id) {
+
+    const el =
+        document.getElementById(id);
+
+    if (el.style.display === "none") {
+
+        el.style.display = "block";
+
+    } else {
+
+        el.style.display = "none";
+    }
+};
 
 window.toggleAnswer = function(id) {
 
+    const el =
+        document.getElementById(id);
 
-const el =
-    document.getElementById(id);
+    if (el.style.display === "none") {
 
-if (el.style.display === "none") {
+        el.style.display = "block";
 
-    el.style.display = "block";
+    } else {
 
-} else {
-
-    el.style.display = "none";
-}
-
-
+        el.style.display = "none";
+    }
 };
+
 
 async function loadData() {
 
