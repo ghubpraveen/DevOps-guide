@@ -1,1 +1,1 @@
-export const awsQuestions=[{question:'VPC',answer:'Logical network isolation.'}];
+
