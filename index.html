@@ -226,22 +226,6 @@
             document.body.classList.toggle("dark");
         }
 
-        document.addEventListener("click", (e) => {
-
-            if (
-                e.target.classList.contains("section-title")
-            ) {
-
-                const content =
-                    e.target.nextElementSibling;
-
-                content.style.display =
-                    content.style.display === "none"
-                        ? "block"
-                        : "none";
-            }
-        });
-
         document.addEventListener("input", (e) => {
 
             if (e.target.id !== "searchBox")

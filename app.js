@@ -70,14 +70,15 @@ window.toggleSection = function(id) {
     const el =
         document.getElementById(id);
 
-    if (el.style.display === "none") {
+    if (!el) return;
 
-        el.style.display = "block";
+    const current =
+        window.getComputedStyle(el).display;
 
-    } else {
-
-        el.style.display = "none";
-    }
+    el.style.display =
+        current === "none"
+            ? "block"
+            : "none";
 };
 
 window.toggleAnswer = function(id) {
